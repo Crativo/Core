@@ -1,25 +1,5 @@
 
-RewriteEngine On
+				RewriteEngine On
 
-#Activate this for remote servers
-# RewriteBase /yes
-
-# Route /Home
-RewriteRule Home index.php?view=Home
-RewriteRule HOME index.php?view=Home
-RewriteRule home index.php?view=Home
-
-# Route /Photo
-RewriteRule Photo index.php?view=Photo
-RewriteRule PHOTO index.php?view=Photo
-RewriteRule photo index.php?view=Photo
-
-# Route /Form
-RewriteRule Form index.php?view=Form
-RewriteRule FORM index.php?view=Form
-RewriteRule form index.php?view=Form
-
-# Route /Products
-RewriteRule Products index.php?view=Products
-RewriteRule PRODUCTS index.php?view=Products
-RewriteRule products index.php?view=Products
+				#Activate this for remote servers
+				# RewriteBase /yes
