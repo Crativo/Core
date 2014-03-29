@@ -1,0 +1,56 @@
+<?php
+	if($argv[1] == 'compile'){
+		if($argv[2] == 'routes'){
+			if(file_exists('App.xml')){
+				if(file_exists('.htaccess')){
+					unlink('.htaccess');
+				}
+				$hthead = '
+				RewriteEngine On
+
+				#Activate this for remote servers
+				# RewriteBase /yes';
+					file_put_contents('.htaccess', $hthead);
+					foreach ($App->Routes->Route as $Route) {
+						$route = $Route->Input;
+						$route_lwrcase = strtolower($route);
+						$route_uprcase = ucfirst($route);
+						$route_caps = strtoupper($route);
+				$route_edit = '
+
+				# Route /'.$route.'
+				RewriteRule '.$route_uprcase.' index.php?view='.$route.'
+				RewriteRule '.$route_caps.' index.php?view='.$route.'
+				RewriteRule '.$route_lwrcase.' index.php?view='.$route;
+				file_put_contents('.htaccess', $route_edit, FILE_APPEND | LOCK_EX);
+				}
+			}
+			echo '
+Re-Compiled new routes in App.xml';
+		}	
+		if($argv[2] == 'packages'){
+			if(file_exists('Application/Partials/Packages.php')){
+				unlink('Application/Partials/Packages.php');
+			}
+			file_put_contents('Application/Partials/Packages.php', '<!--Generated Packages Partial by Packager.php-->');
+			if(isset($App->Library)){
+			foreach($App->Library->Package as $Package){
+				if(substr($Package, -4) == '.css'){
+					$injection = '
+			<link rel="stylesheet" type="text/css" href="Library/'.$Package.'">';
+					file_put_contents('Application/Partials/Packages.php', $injection, FILE_APPEND | LOCK_EX);
+				}
+				if(substr($Package, -3) == '.js'){
+					$injection = '
+			<script src="Library/'.$Package.'"></script>';
+					file_put_contents('Application/Partials/Packages.php', $injection, FILE_APPEND | LOCK_EX);
+				}else{	
+				}
+			}
+			}else{
+			}
+			echo '
+Re-Compiled new pacakges';
+		}	
+	}
+?>
