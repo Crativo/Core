@@ -26,8 +26,8 @@ $App = simplexml_load_file('App.xml');
 				file_put_contents('.htaccess', $route_edit, FILE_APPEND | LOCK_EX);
 				}
 			}
-			echo '
-Re-Compiled new routes in App.xml';
+			echo 'Re-Compiled new routes in App.xml
+';
 		}	
 		if($argv[2] == 'packages'){
 			if(file_exists('Application/Partials/Packages.php')){
@@ -50,8 +50,8 @@ Re-Compiled new routes in App.xml';
 			}
 			}else{
 			}
-			echo '
-Re-Compiled new pacakges';
+			echo 'Re-Compiled new pacakges
+';
 		}	
 	}
 ?>
