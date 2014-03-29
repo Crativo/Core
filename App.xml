@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application>
+	<Mode>Run</Mode>
+	<Title>Crativo Cloud</Title>
+	<Author>Jose Viscasillas</Author>
+	<Description>Pay Phonebills over the internet</Description>
+	<Library>
+		<Package>jQuery/jquery-2.1.0.min.js</Package>
+		<Package>Bootstrap/css/bootstrap.css</Package>
+		<Package>Bootstrap/js/bootstrap.js</Package>
+		<Package>Angular/angular.min.js</Package>
+	</Library>
+	<Routes>
+		<Route>
+			<Input>Home</Input>
+			<Output>?view=Home</Output>
+		</Route>
+		<Route>
+			<Input>Photo</Input>
+			<Output>?view=Photo</Output>
+		</Route>
+		<Route>
+			<Input>Form</Input>
+			<Output>?view=Form</Output>
+		</Route>
+		<Route>
+			<Input>Products</Input>
+			<Output>?view=Products</Output>
+		</Route>
+	</Routes>
+</Application>

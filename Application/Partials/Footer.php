@@ -1,0 +1,3 @@
+<!-- Footer.php -->
+</body>
+</html>
